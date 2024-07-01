@@ -122,6 +122,7 @@ select w1.* from worker w1, worker w2 where w1.salary = w2.salary and w1.worker_
 -- Q-36. Write an SQL query to show the second highest salary from a table using sub-query.
 select max(salary) from worker
 where salary not in (select max(salary) from worker);
+select * from worker as w1 where 1=(select count(distinct(salary))  from worker as w2 where w1.salary>w2.salary);
 
 -- Q-37. Write an SQL query to show one row twice in results from a table.
 select * from worker
